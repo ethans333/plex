@@ -1,0 +1,22 @@
+{
+  "format": "bestaudio/best",
+  "writethumbnail": true,
+  "embedthumbnail": true,
+  "convert-thumbnails": "jpg",
+  "embedmetadata": true,
+  "postprocessors": [
+    {
+      "key": "FFmpegExtractAudio",
+      "preferredcodec": "mp3",
+      "preferredquality": "0"
+    },
+    {
+      "key": "EmbedThumbnail"
+    },
+    {
+      "key": "FFmpegMetadata",
+      "add_metadata": true,
+      "add_chapters": false
+    }
+  ]
+}
