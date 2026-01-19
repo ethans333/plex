@@ -9,10 +9,9 @@ services:
       - TZ=America/New_York
       - PUID=1000
       - PGID=1000
-      - PLEX_CLAIM=claim-N6if6fJB-37yn185bXJh
+      # - PLEX_CLAIM=claim-XXXXXXXX-XXXXXXXX
     volumes:
       - /mnt/ssd/media:/media
       - /mnt/ssd/plex-config:/config
       - /mnt/ssd/plex-transcode:/transcode
     restart: unless-stopped
-

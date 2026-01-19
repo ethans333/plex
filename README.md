@@ -1,17 +1,15 @@
-### Install
+## Build & Run Cron Container
 
-Install [uv](https://docs.astral.sh/uv/getting-started/installation/).
-
-In `/soundcloud_cron`:
-
-```
-uv sync
+Build:
+```bash
+docker build -t soundcloud-cron:latest
 ```
 
-### Run
-
-In `/soundcloud_cron`:
-
-```
-uv run --env-file .env -- main.py 
+Run:
+```bash
+docker run --rm \
+    -v /mnt/ssd/media/Music:/app/media \
+    -e MEDIA_DIR=/app/media \
+    -e MEDIA_URL=https://soundcloud.com/vertical-asymptote/sets/edm \
+    soundcloud-cron
 ```

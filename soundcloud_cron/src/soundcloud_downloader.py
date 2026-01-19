@@ -9,7 +9,7 @@ class SoundCloudDownloader:
         self,
         media_url: str | list[str],
         media_dir: str,
-        ytdl_options_path: str = "./data/yt_dlp_options.json",
+        ytdl_options_path: str = "./data/options.json",
     ):
         with open(ytdl_options_path, 'r') as file:
             self.options = json.load(file)
