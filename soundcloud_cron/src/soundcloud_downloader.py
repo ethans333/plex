@@ -10,6 +10,7 @@ class SoundCloudDownloader:
         media_url: str | list[str],
         media_dir: str,
         ytdl_options_path: str = "./data/options.json",
+        archive_file_path: str = ""
     ):
         with open(ytdl_options_path, 'r') as file:
             self.options = json.load(file)
@@ -17,7 +18,8 @@ class SoundCloudDownloader:
         self.options["download_archive"] = os.path.join(
             media_dir,
             "archive.txt"
-        )
+        ) if not archive_file_path else archive_file_path
+
         self.options["outtmpl"] = os.path.join(
             media_dir,
             "%(uploader)s/%(title)s.%(ext)s"
@@ -26,9 +28,9 @@ class SoundCloudDownloader:
         self.media_url = media_url
         self.media_dir = media_dir
 
-    def download(self):
+    def download(self) -> dict:
         with YoutubeDL(self.options) as ydl:
             # download songs
             ydl.add_post_processor(
                 MetaDataPostProcessor(), when="post_process")
-            ydl.download(self.media_url)
+            return ydl.extract_info(self.media_url, download=True)

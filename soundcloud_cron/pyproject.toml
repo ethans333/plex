@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "mutagen>=1.47.0",
+    "plexapi>=4.17.2",
     "tqdm>=4.67.1",
     "yt-dlp>=2025.12.8",
 ]
